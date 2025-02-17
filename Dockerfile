@@ -1,7 +1,7 @@
 FROM nginx:latest
-COPY . .
-COPY index.html /usr/share/nginx/html/index.html
-COPY index.js /usr/share/nginx/html/index.js
-COPY style.css /usr/share/nginx/html/style.css
-RUN touch /usr/share/nginx/html/.DS_Store
+
+# Copy all files from the build context to the Nginx HTML directory
+COPY . /usr/share/nginx/html/
+
+# Expose port 80 for the web server
 EXPOSE 80
